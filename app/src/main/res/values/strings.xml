@@ -3,4 +3,6 @@
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="title_activity_random_workout_select_groups">random_workout_select_groups</string>
+    <string name="title_activity_main_session">main_session</string>
 </resources>

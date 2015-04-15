@@ -5,22 +5,27 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
+import android.widget.TextView;
 
 
-public class MainActivity extends ActionBarActivity {
+public class main_session extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_main_session);
+
+        Intent intent = getIntent();
+        String msg = intent.getStringExtra(random_workout_select_groups.EXTRA_MESSAGE);
+        TextView tv = (TextView) findViewById(R.id.tv);
+        tv.setText(msg);
     }
 
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
+        getMenuInflater().inflate(R.menu.menu_main_session, menu);
         return true;
     }
 
@@ -37,11 +42,5 @@ public class MainActivity extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
-    }
-
-    /** Called when the user clicks the Start Workout button */
-    public void start_random_workout_select_groups(View view) {
-        Intent intent = new Intent(this, random_workout_select_groups.class);
-        startActivity(intent);
     }
 }
