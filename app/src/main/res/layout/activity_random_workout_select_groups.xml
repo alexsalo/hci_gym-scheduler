@@ -92,8 +92,9 @@
 
     <Button
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="fill_parent"
         android:text="BEGIN SESSION"
         android:id="@+id/btn_begin_session"
+        android:background="@android:color/holo_blue_light"
         android:onClick="begin_main_session"/>
 </LinearLayout>

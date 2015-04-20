@@ -7,6 +7,11 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
+
 
 public class MainActivity extends ActionBarActivity {
 
@@ -31,6 +36,7 @@ public class MainActivity extends ActionBarActivity {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
+
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
@@ -44,4 +50,11 @@ public class MainActivity extends ActionBarActivity {
         Intent intent = new Intent(this, random_workout_select_groups.class);
         startActivity(intent);
     }
+
+    /** Called when the user clicks the Start Workout button */
+    public void define_workout(View view) {
+        Intent intent = new Intent(this, define_workout.class);
+        startActivity(intent);
+    }
+
 }

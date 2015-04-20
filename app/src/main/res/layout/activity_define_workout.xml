@@ -1,0 +1,95 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Please desired exercises and their appropriate order for your workout today:"
+        android:padding="20dp"
+        />
+
+    <LinearLayout android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="10dp"
+        android:weightSum="3">
+
+        <Spinner
+            android:id="@+id/cb_ex1"
+            android:layout_width="0dip"
+            android:layout_weight="1"
+            android:layout_height="wrap_content" />
+
+        <Spinner
+            android:id="@+id/cb_ex2"
+            android:layout_width="0dip"
+            android:layout_weight="1"
+            android:layout_height="wrap_content" />
+
+        <Spinner
+            android:id="@+id/cb_ex3"
+            android:layout_width="0dip"
+            android:layout_weight="1"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <LinearLayout android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="10dp"
+        android:weightSum="3">
+
+        <Spinner
+            android:id="@+id/cb_ex4"
+            android:layout_width="0dip"
+            android:layout_weight="1"
+            android:layout_height="wrap_content" />
+
+        <Spinner
+            android:id="@+id/cb_ex5"
+            android:layout_width="0dip"
+            android:layout_weight="1"
+            android:layout_height="wrap_content" />
+
+        <Spinner
+            android:id="@+id/cb_ex6"
+            android:layout_width="0dip"
+            android:layout_weight="1"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <LinearLayout android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="10dp"
+        android:weightSum="3">
+
+        <Spinner
+            android:id="@+id/cb_ex7"
+            android:layout_width="0dip"
+            android:layout_weight="1"
+            android:layout_height="wrap_content" />
+
+        <Spinner
+            android:id="@+id/cb_ex8"
+            android:layout_width="0dip"
+            android:layout_weight="1"
+            android:layout_height="wrap_content" />
+
+        <Spinner
+            android:id="@+id/cb_ex9"
+            android:layout_width="0dip"
+            android:layout_weight="1"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <Button
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:text="BEGIN SESSION"
+        android:id="@+id/btn_begin_session_2"
+        android:background="@android:color/holo_blue_light"
+        android:onClick="begin_main_session"/>
+</LinearLayout>
