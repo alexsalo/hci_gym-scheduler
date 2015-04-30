@@ -2,6 +2,7 @@ package edu.baylor.ecs.hci.gymscheduler;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.StrictMode;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -13,6 +14,10 @@ import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.net.Socket;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -21,7 +26,7 @@ import java.util.Map;
 
 public class define_workout extends ActionBarActivity {
     public static Map<String, ArrayList<String>> all_exercises_set = new HashMap<String, ArrayList<String>>();
-    public static String set_of_exercises = "chest:bench press,push ups;legs:squads,jumps,steps;" +
+    public String set_of_exercises = "chest:bench press,push ups;legs:squads,jumps,steps;" +
             "arms:pull ups,bicep curls,tricep,dips;core:abs,ball rotation,bent";
     public ArrayList<String> choices = new ArrayList<String>();
 
@@ -35,6 +40,34 @@ public class define_workout extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_define_workout);
 
+        /*StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+        StrictMode.setThreadPolicy(policy);
+        try {
+            Socket server = new Socket("wind.ecs.baylor.edu", 4444);
+            PrintWriter out = new PrintWriter(server.getOutputStream(), true);
+            BufferedReader in = new BufferedReader(new InputStreamReader(server.getInputStream()));
+
+            out.println("ANDROID DEVICE");
+            String accepted = in.readLine();
+            if(accepted.compareTo("ANDROID ACCEPTED") == 0) {
+                Toast.makeText(define_workout.this, "Connection to the server established", Toast.LENGTH_SHORT).show();
+                out.println("GET ALL EXERCISES");
+                out.flush();
+                set_of_exercises = in.readLine();
+                out.println("OK");
+                out.flush();
+//parse the string
+            }
+            else
+                Toast.makeText(define_workout.this, "Not android device", Toast.LENGTH_SHORT).show();
+            server.close();
+        }
+        catch (Exception e){
+            Log.d("e", e.toString());
+            Toast.makeText(define_workout.this, "Can't reach the server", Toast.LENGTH_SHORT).show();
+        }
+        */
+
         // Init all the exercises
         String[] groups = set_of_exercises.split(";");
         for (int i = 0; i < groups.length; i++){
@@ -43,6 +76,7 @@ public class define_workout extends ActionBarActivity {
             ArrayList<String> exs = new ArrayList<String>(Arrays.asList(exs_strings));
             all_exercises_set.put(groups[i].substring(0, column), exs);
         }
+
 
         // Create an ArrayAdapter using the string array and a default spinner layout
         choices.add("Exercise");
@@ -61,7 +95,7 @@ public class define_workout extends ActionBarActivity {
             spinners_exs[k] = (Spinner) findViewById(spinner_names[k]);
             spinners_exs[k].setAdapter(adapter);
 
-            spinners_exs[k].setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            /*spinners_exs[k].setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                 @Override
                 public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                     String ex = (String) parent.getItemAtPosition(position);
@@ -72,7 +106,7 @@ public class define_workout extends ActionBarActivity {
                 public void onNothingSelected(AdapterView<?> parent) {
 
                 }
-            });
+            });*/
         }
     }
 
@@ -104,13 +138,12 @@ public class define_workout extends ActionBarActivity {
         if (true) {
             Intent intent = new Intent(this, main_session.class);
 
-            String msg = "";
+            ArrayList<String> chosen_exercises = new ArrayList<>();
             for (int i = 0; i < spinners_exs.length; i++) {
-                msg += spinners_exs[i].getSelectedItem().toString();
-                msg += "; ";
+                chosen_exercises.add(spinners_exs[i].getSelectedItem().toString());
             }
 
-            intent.putExtra(EXTRA_MESSAGE, msg);
+            //intent.putStringArrayListExtra(EXTRA_MESSAGE, chosen_exercises);
             startActivity(intent);
         }else{
             Context context = getApplicationContext();

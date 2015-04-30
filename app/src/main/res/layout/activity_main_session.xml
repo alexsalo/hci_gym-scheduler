@@ -1,9 +1,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:layout_height="match_parent"
+
     tools:context="edu.baylor.ecs.hci.gymscheduler.main_session">
 
     <LinearLayout
@@ -18,7 +16,7 @@
             android:layout_width="fill_parent"
             android:layout_height="40dip"
             android:padding="10dip"
-            android:text="dsf"
+            android:text="1"
             android:background="@color/highlighted_text_material_light"/>
 
         <TextView
@@ -26,56 +24,56 @@
             android:layout_width="fill_parent"
             android:layout_height="40dip"
             android:padding="10dip"
-            android:text="dsf"
+            android:text="2"
             android:background="@color/highlighted_text_material_light"/>
         <TextView
             android:id="@+id/tv_ex_3"
             android:layout_width="fill_parent"
             android:layout_height="40dip"
             android:padding="10dip"
-            android:text="dsf"
+            android:text="3"
             android:background="@color/highlighted_text_material_light"/>
         <TextView
             android:id="@+id/tv_ex_4"
             android:layout_width="fill_parent"
             android:layout_height="40dip"
             android:padding="10dip"
-            android:text="dsf"
+            android:text="4"
             android:background="@color/highlighted_text_material_light"/>
         <TextView
             android:id="@+id/tv_ex_5"
             android:layout_width="fill_parent"
             android:layout_height="40dip"
             android:padding="10dip"
-            android:text="dsf"
-            android:background="@android:color/holo_red_light"/>
+            android:text="5"
+            android:background="@color/highlighted_text_material_light"/>
         <TextView
             android:id="@+id/tv_ex_6"
             android:layout_width="fill_parent"
             android:layout_height="40dip"
             android:padding="10dip"
-            android:text="dsf"
+            android:text="6"
             android:background="@color/highlighted_text_material_light"/>
         <TextView
             android:id="@+id/tv_ex_7"
             android:layout_width="fill_parent"
             android:layout_height="40dip"
             android:padding="10dip"
-            android:text="dsf"
+            android:text="7"
             android:background="@color/highlighted_text_material_light"/>
         <TextView
             android:id="@+id/tv_ex_8"
             android:layout_width="fill_parent"
             android:layout_height="40dip"
             android:padding="10dip"
-            android:text="dsf"
+            android:text="8"
             android:background="@color/highlighted_text_material_light"/>
         <TextView
             android:id="@+id/tv_ex_9"
             android:layout_width="fill_parent"
             android:layout_height="40dip"
             android:padding="10dip"
-            android:text="dsf"
+            android:text="9"
             android:background="@color/highlighted_text_material_light"/>
 
     </LinearLayout>
@@ -87,27 +85,38 @@
         android:orientation="vertical">
 
         <TextView android:text="@string/hello_world"
-            android:padding="20dp"
+            android:padding="35dp"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:background="@android:color/holo_green_light"
             android:textSize="32sp"
-            android:id="@+id/tv_desc"/>
+            android:id="@+id/tv_cur_ext"/>
 
-        <TextView android:text="@string/hello_world"
+        <TextView android:text="Station: "
             android:padding="10dp"
             android:layout_width="fill_parent"
-            android:layout_height="250dp"
+            android:layout_height="100dp"
+            android:background="@android:color/holo_green_light"
+            android:textSize="24sp"
+            android:id="@+id/tv_ex_station"/>
+
+        <TextView android:text="Please imitate the exercise.
+        \nYou want to pretend to do 3 sets of 8 reps in each.
+        \nTotal time should be around for 2-3 minutes, but natural variation is ok."
+            android:padding="10dp"
+            android:layout_width="fill_parent"
+            android:layout_height="150dp"
             android:background="@android:color/holo_green_light"
             android:textSize="14sp"
-            android:id="@+id/tv"/>
+            android:id="@+id/tv_ex_desc"/>
 
         <Button
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:id="@+id/btn_next"
             android:background="@android:color/holo_blue_light"
-            android:text="Next"/>
+            android:text="Start"
+            android:onClick="next_exercise"/>
 
 
     </LinearLayout>

@@ -2,8 +2,10 @@ package edu.baylor.ecs.hci.gymscheduler;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.StrictMode;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -11,11 +13,18 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.Toast;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.net.InetAddress;
+import java.net.ServerSocket;
+import java.net.Socket;
+import java.util.ArrayList;
 
 public class random_workout_select_groups extends ActionBarActivity {
     public final static String EXTRA_MESSAGE = "edu.baylor.ecs.hci.gymscheduler.MESSAGE";
     private int NUM_CHECKED = 0;
-    private CheckBox[] checkboxes = new CheckBox[5];
+    private CheckBox[] checkboxes = new CheckBox[4];
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,9 +33,8 @@ public class random_workout_select_groups extends ActionBarActivity {
 
         checkboxes[0] = (CheckBox) findViewById(R.id.cb_random_chest);
         checkboxes[1] = (CheckBox) findViewById(R.id.cb_random_arms);
-        checkboxes[2]  = (CheckBox) findViewById(R.id.cb_random_legs);
-        checkboxes[3]  = (CheckBox) findViewById(R.id.cb_random_core);
-        checkboxes[4]  = (CheckBox) findViewById(R.id.cb_random_back);
+        checkboxes[2]  = (CheckBox) findViewById(R.id.cb_random_core);
+        checkboxes[3]  = (CheckBox) findViewById(R.id.cb_random_back);
 
         for (int i = 0; i < checkboxes.length; i++){
             checkboxes[i].setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -81,15 +89,15 @@ public class random_workout_select_groups extends ActionBarActivity {
         if (NUM_CHECKED == 3) {
             Intent intent = new Intent(this, main_session.class);
 
-            String msg = "";
+            //TODO get list of exercises from server
+            ArrayList<String> chosen_exercises = new ArrayList<>();
             for (int i = 0; i < checkboxes.length; i++) {
                 if (checkboxes[i].isChecked()) {
-                    msg += checkboxes[i].getText().toString();
-                    msg += "; ";
+                    chosen_exercises.add(checkboxes[i].getText().toString());
                 }
             }
 
-            intent.putExtra(EXTRA_MESSAGE, msg);
+            intent.putStringArrayListExtra(EXTRA_MESSAGE, chosen_exercises);
             startActivity(intent);
         }else{
             Context context = getApplicationContext();

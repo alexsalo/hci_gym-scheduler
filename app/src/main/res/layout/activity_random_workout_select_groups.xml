@@ -18,12 +18,12 @@
         <CheckBox
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Chest Workout"
+            android:text="UPPERBODY"
             android:id="@+id/cb_random_chest"/>
         <TextView
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:text="Contain exercises involving chest"/>
+            android:text="Contain exercises involving Upper Body"/>
     </LinearLayout>
 
     <LinearLayout android:layout_width="fill_parent"
@@ -34,12 +34,12 @@
         <CheckBox
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Back Workout"
+            android:text="LOWERBODY"
             android:id="@+id/cb_random_back"/>
         <TextView
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:text="Contain exercises involving back"/>
+            android:text="Contain exercises involving Lower Body"/>
     </LinearLayout>
 
     <LinearLayout android:layout_width="fill_parent"
@@ -50,7 +50,7 @@
         <CheckBox
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Core Workout"
+            android:text="CORE"
             android:id="@+id/cb_random_core"/>
         <TextView
             android:layout_width="fill_parent"
@@ -66,28 +66,12 @@
         <CheckBox
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Arms Workout"
+            android:text="BACK"
             android:id="@+id/cb_random_arms"/>
         <TextView
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:text="Contain exercises involving Arms"/>
-    </LinearLayout>
-
-    <LinearLayout android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="10dp">
-
-        <CheckBox
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Legs Workout"
-            android:id="@+id/cb_random_legs"/>
-        <TextView
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="Contain exercises involving Legs"/>
+            android:text="Contain exercises involving Back"/>
     </LinearLayout>
 
     <Button
